@@ -1,0 +1,19 @@
+{
+  "tasks": {
+    "start": "deno run --unstable -A ./src/index.tsx",
+    "dev": "deno task start --watch",
+    "compile:mac": "deno compile --unstable -A --target x86_64-apple-darwin --output ./dist/x86_64-apple-darwin ./src/index.tsx"
+  },
+  "lint": {
+    "rules": {
+      "exclude": ["ban-ts-comment", "no-explicit-any"]
+    }
+  },
+  "imports": {
+    "hono": "https://deno.land/x/hono@v3.9.2/mod.ts",
+    "hono/jsx": "https://deno.land/x/hono@v3.9.2/jsx/index.ts",
+    "hono/logger": "https://deno.land/x/hono@v3.9.2/middleware/logger/index.ts",
+    "@hono/zod-validator": "npm:@hono/zod-validator@0.1.11",
+    "zod": "https://deno.land/x/zod@v3.22.4/mod.ts"
+  }
+}
