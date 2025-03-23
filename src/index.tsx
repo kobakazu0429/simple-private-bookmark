@@ -1,15 +1,17 @@
 /** @jsx jsr:@hono/hono@4.7.5/jsx */
 /** @jsxImportSource jsr:@hono/hono@4.7.5/jsx */
 
+import { parseArgs } from "jsr:@std/cli/parse-args";
 import { Hono } from "jsr:@hono/hono@4.7.5";
 import { type FC } from "jsr:@hono/hono@4.7.5/jsx";
 import { logger } from "jsr:@hono/hono@4.7.5/logger";
 import * as v from "jsr:@valibot/valibot@1.0.0";
 import { vValidator } from "./valibot-validator.ts";
 
-const PORT = parseInt(Deno.env.get("PORT")!, 10) || 8000;
+const args = parseArgs(Deno.args);
 
-const kv = await Deno.openKv("spb.sqlite");
+const PORT = parseInt(args.port, 10) || 8000;
+const kv = await Deno.openKv(args.db ?? "spb.sqlite");
 const app = new Hono();
 
 app.use("*", logger());

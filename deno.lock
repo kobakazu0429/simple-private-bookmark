@@ -2,11 +2,15 @@
   "version": "4",
   "specifiers": {
     "jsr:@hono/hono@4.7.5": "4.7.5",
+    "jsr:@std/cli@*": "1.0.14",
     "jsr:@valibot/valibot@1.0.0": "1.0.0"
   },
   "jsr": {
     "@hono/hono@4.7.5": {
       "integrity": "36a7e1b3db8a58e5dc2bd36a76be53346f0966e04c24c635c4d6f58875575b0a"
+    },
+    "@std/cli@1.0.14": {
+      "integrity": "b09ee9921cd476c0e08185ed2bfce682d45ecf4654f26c31b4aa244a2c5c024e"
     },
     "@valibot/valibot@1.0.0": {
       "integrity": "2e16f77fb6a1721c0c219fe0eecdc902a2d8e3d45b98383b228eda93c394e4b7"
