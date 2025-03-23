@@ -27,6 +27,28 @@ const Layout: FC = (props) => {
             button[type=submit] {
               background-color: var(--tailwind-color-brand,#0096fa);
             }
+
+            table {
+              table-layout: fixed;
+              width: 100%;
+            }
+
+            th:nth-child(1),
+            td:nth-child(1) {
+              width: 100%;
+              overflow-wrap: anywhere;
+            }
+
+            th:nth-child(2),
+            td:nth-child(2) {
+              width: 500px;
+              overflow: hidden;
+            }
+
+            th:nth-child(3),
+            td:nth-child(3) {
+              width: 90px;
+            }
           `}
         </style>
         <link
@@ -69,7 +91,7 @@ app.get("/", async (c) => {
             <tr>
               <td>名前</td>
               <td>URL</td>
-              <td style={{ "white-space": "nowrap" }}>削除ボタン</td>
+              <td>削除ボタン</td>
             </tr>
           </thead>
           <tbody>
