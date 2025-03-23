@@ -95,10 +95,20 @@ app.get("/", async (c) => {
   );
 });
 
-const createSchema = v.object({
-  title: v.string(),
-  url: v.pipe(v.string(), v.url()),
-});
+// タイトルのみか、URLのみか、タイトル+URLを許容する
+const createSchema = v.union([
+  // タイトルのみ
+  v.object({
+    title: v.pipe(v.string(), v.nonEmpty()),
+    url: v.pipe(v.string(), v.empty()),
+  }),
+
+  // URLのみか、タイトル+URLを許容する
+  v.object({
+    title: v.string(),
+    url: v.pipe(v.string(), v.url()),
+  }),
+]);
 
 const dbSchema = createSchema;
 type DB = v.InferOutput<typeof dbSchema>;
