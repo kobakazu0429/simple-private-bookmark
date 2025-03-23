@@ -1,19 +1,18 @@
 {
   "tasks": {
-    "start": "deno run --unstable -A ./src/index.tsx",
-    "dev": "deno task start --watch",
-    "compile:mac": "deno compile --unstable -A --target x86_64-apple-darwin --output ./dist/x86_64-apple-darwin ./src/index.tsx"
+    "dev": "deno run --allow-env=PORT --allow-read=spb.sqlite --allow-write=spb.sqlite --allow-net=0.0.0.0:8000 --watch ./src/index.tsx",
+    "compile:mac": "deno compile --allow-env=PORT --allow-read=spb.sqlite --allow-write=spb.sqlite --allow-net=0.0.0.0:8000 --target x86_64-apple-darwin --output ./dist/x86_64-apple-darwin ./src/index.tsx",
+    "compile:ubuntu": "deno compile --allow-env=PORT --allow-read=spb.sqlite --allow-write=spb.sqlite --allow-net=0.0.0.0:8000 --target x86_64-unknown-linux-gnu --output ./dist/x86_64-unknown-linux-gnu ./src/index.tsx"
   },
   "lint": {
     "rules": {
-      "exclude": ["ban-ts-comment", "no-explicit-any"]
+      "exclude": [
+        "ban-ts-comment",
+        "no-explicit-any"
+      ]
     }
   },
-  "imports": {
-    "hono": "https://deno.land/x/hono@v3.9.2/mod.ts",
-    "hono/jsx": "https://deno.land/x/hono@v3.9.2/jsx/index.ts",
-    "hono/logger": "https://deno.land/x/hono@v3.9.2/middleware/logger/index.ts",
-    "@hono/zod-validator": "npm:@hono/zod-validator@0.1.11",
-    "zod": "https://deno.land/x/zod@v3.22.4/mod.ts"
-  }
+  "unstable": [
+    "kv"
+  ]
 }
