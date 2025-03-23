@@ -1,0 +1,11 @@
+[Unit]
+Description=simple-private-bookmark service
+
+[Service]
+User=kazu
+ExecStart=/home/kazu/デスクトップ/simple-private-bookmark-x86_64-unknown-linux-gnu --db=/home/kazu/デスクトップ/spb.sqlite
+Restart=no
+Type=simple
+
+[Install]
+WantedBy=default.target
